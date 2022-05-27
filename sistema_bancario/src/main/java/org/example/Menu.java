@@ -19,7 +19,7 @@ public class Menu {
         switch (input){
 
             case '1':
-                
+                Features.cadastrarConta();
                 break;
 
             case '2':
