@@ -53,7 +53,13 @@ public class Menu {
                     System.out.println("Digite o numero da conta: ");
                     scanner = new Scanner(System.in);
 
-                    Features.debitarValor(scanner.nextLong());                }
+                    Features.debitarValor(scanner.nextLong());
+                }
+                case 5 -> {
+                    System.out.println("Digite o numero da sua conta: ");
+                    scanner = new Scanner(System.in);
+
+                    Features.transferir(scanner.nextLong());                     }
                 case 0 ->{
                     return;
                 }
@@ -74,3 +80,4 @@ public class Menu {
 
 
 }
+    

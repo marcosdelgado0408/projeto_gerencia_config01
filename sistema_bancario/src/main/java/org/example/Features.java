@@ -69,8 +69,41 @@ public class Features {
     }
 
 
+    public static void transferir(long numeroConta) {
+
+        for(Conta conta: contas) {
+            if (conta.getNumeroConta() == numeroConta) {
+
+                System.out.println("----------------------------------");
+                System.out.println("Digite o numero da conta que deseja transferir: ");
+
+                Scanner scanner = new Scanner(System.in);
+                long contaParaTransferir = scanner.nextInt();
+
+                System.out.println("Digite o valor que deseja transferir: ");
+                scanner = new Scanner(System.in);
+                double valor = scanner.nextDouble();
+
+                for(Conta conta1: contas){
+                    if(conta1.getNumeroConta() == contaParaTransferir){
+                        conta.setSaldo(conta.getSaldo() - valor);
+                        conta1.setSaldo(conta1.getSaldo() + valor);
+
+                        System.out.println("Dinheiro transferido com sucesso");
+                        return;
+                    }
+                }
+                System.out.println("Erro -> Essa conta nao foi cadastrada");
 
 
+
+            }
+        }
+
+        System.out.println("Erro -> Essa conta nao foi cadastrada");
+
+
+    }
 
 
 
