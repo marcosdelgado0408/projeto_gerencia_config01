@@ -48,8 +48,12 @@ public class Menu {
                     scanner = new Scanner(System.in);
 
                     Features.addCredito(scanner.nextLong());
-
                 }
+                case 4 -> {
+                    System.out.println("Digite o numero da conta: ");
+                    scanner = new Scanner(System.in);
+
+                    Features.debitarValor(scanner.nextLong());                }
                 case 0 ->{
                     return;
                 }

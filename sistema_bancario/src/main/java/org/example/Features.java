@@ -45,11 +45,37 @@ public class Features {
             }
         }
         System.out.println("Erro -> Essa conta nao foi cadastrada");
+    }
+
+    public static void debitarValor(long numeroConta){
+        for(Conta conta: contas){
+            if(conta.getNumeroConta() == numeroConta){
+                System.out.println("----------------------------------");
+                System.out.println("Digite o valor a ser debitado na conta:");
+
+                Scanner scanner = new Scanner(System.in);
+                double valorDebito = scanner.nextDouble();
+
+                valorDebito = conta.getSaldo() - valorDebito;
 
 
+                conta.setSaldo(valorDebito);
+
+                System.out.println("Valor debitado sucesso");
+                return;
+            }
+        }
+        System.out.println("Erro -> Essa conta nao foi cadastrada");
     }
 
 
 
 
+
+
+
 }
+
+
+
+
