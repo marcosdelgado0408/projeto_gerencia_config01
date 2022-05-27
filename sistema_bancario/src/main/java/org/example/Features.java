@@ -15,4 +15,18 @@ public class Features {
         System.out.println("Numero da conta: " + contas.get(0).getNumeroConta());
         System.out.println("Saldo da conta: " + contas.get(0).getSaldo());
     }
+
+    public static void consultarSaldo(long numero){
+        for(Conta conta: contas){
+            if(conta.getNumeroConta() == numero){
+                System.out.println("Saldo da conta " + numero + " :" + conta.getSaldo());
+                return;
+            }
+        }
+        System.out.println("Erro -> Essa conta nao foi cadastrada");
+    }
+
+
+
+
 }

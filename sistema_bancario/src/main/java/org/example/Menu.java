@@ -14,24 +14,48 @@ public class Menu {
         System.out.println("3 - Solicitar credito");
         System.out.println("4 - Debitar");
         System.out.println("5 - Transferencia");
+        System.out.println("0 - Sair");
         System.out.println("=======================================");
     }
 
-    public void goToMethod(int input){
-        switch (input){
+    public void inicializar(){
+        Scanner scanner;
 
-            case 1:
-
-                System.out.println("Digite o novo numero da sua conta: ");
-                Scanner scanner = new Scanner(System.in);
-                long novoNumero = scanner.nextLong();
-                Features.cadastrarConta(novoNumero);
-                break;
-
-            case 2:
+        do {
+            showMenu();
 
 
-        }
+            scanner = new Scanner(System.in);
+            int input  = scanner.nextInt();
+
+
+            switch (input) {
+                case 1 -> {
+                    System.out.println("Digite o novo numero da sua conta: ");
+                    scanner = new Scanner(System.in);
+                    Features.cadastrarConta(scanner.nextLong());
+                }
+
+                case 2 -> {
+                    System.out.println("Digite o numero da conta: ");
+                    scanner = new Scanner(System.in);
+                    Features.consultarSaldo(scanner.nextLong());
+                }
+                case 0 ->{
+                    return;
+                }
+
+            }
+
+        } while (true);
+
+
+
+
+
+
+
+
 
     }
 
