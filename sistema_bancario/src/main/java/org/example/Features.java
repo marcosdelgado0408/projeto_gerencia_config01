@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Features {
 
@@ -24,6 +25,28 @@ public class Features {
             }
         }
         System.out.println("Erro -> Essa conta nao foi cadastrada");
+    }
+
+    public static void addCredito(long numeroConta){
+
+        for(Conta conta: contas){
+            if(conta.getNumeroConta() == numeroConta){
+                System.out.println("----------------------------------");
+                System.out.println("Digite o valor a ser creditado:");
+
+                Scanner scanner = new Scanner(System.in);
+                double valorCredito = scanner.nextDouble();
+
+                valorCredito += conta.getSaldo();
+                conta.setSaldo(valorCredito);
+
+                System.out.println("Saldo creditado com sucesso");
+                return;
+            }
+        }
+        System.out.println("Erro -> Essa conta nao foi cadastrada");
+
+
     }
 
 
