@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Menu {
 
 
@@ -15,14 +17,18 @@ public class Menu {
         System.out.println("=======================================");
     }
 
-    public void goToMethod(char input){
+    public void goToMethod(int input){
         switch (input){
 
-            case '1':
-                Features.cadastrarConta();
+            case 1:
+
+                System.out.println("Digite o novo numero da sua conta: ");
+                Scanner scanner = new Scanner(System.in);
+                long novoNumero = scanner.nextLong();
+                Features.cadastrarConta(novoNumero);
                 break;
 
-            case '2':
+            case 2:
 
 
         }

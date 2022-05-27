@@ -10,7 +10,7 @@ public class Conta {
     }
 
 
-    public Conta(long numeroConta, float saldo){
+    public Conta(long numeroConta, double saldo){
         this.numeroConta = numeroConta;
         this.saldo = saldo;
     }
