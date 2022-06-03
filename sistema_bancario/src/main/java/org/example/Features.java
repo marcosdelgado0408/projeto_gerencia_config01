@@ -50,6 +50,12 @@ public class Features {
     public static void debitarValor(long numeroConta){
         for(Conta conta: contas){
             if(conta.getNumeroConta() == numeroConta){
+
+                if(conta.getSaldo() <= 0){
+                    System.out.println("ERRO -> A conta possui saldo insuficiente para debito");
+                    return;
+                }
+
                 System.out.println("----------------------------------");
                 System.out.println("Digite o valor a ser debitado na conta:");
 
@@ -73,6 +79,11 @@ public class Features {
 
         for(Conta conta: contas) {
             if (conta.getNumeroConta() == numeroConta) {
+
+                if (conta.getSaldo() <= 0) {
+                    System.out.println("Erro -> saldo insuficiente para transferir");
+                    return;
+                }
 
                 System.out.println("----------------------------------");
                 System.out.println("Digite o numero da conta que deseja transferir: ");
