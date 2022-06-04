@@ -37,6 +37,11 @@ public class Features {
                 Scanner scanner = new Scanner(System.in);
                 double valorCredito = scanner.nextDouble();
 
+                if(valorCredito < 0){
+                    System.out.println("Erro -> valor inserido nao pode ser negativo");
+                    return;
+                }
+
                 valorCredito += conta.getSaldo();
                 conta.setSaldo(valorCredito);
 
@@ -62,9 +67,12 @@ public class Features {
                 Scanner scanner = new Scanner(System.in);
                 double valorDebito = scanner.nextDouble();
 
+                if(valorDebito < 0){
+                    System.out.println("Erro -> valor inserido nao pode ser negativo");
+                    return;
+                }
+
                 valorDebito = conta.getSaldo() - valorDebito;
-
-
                 conta.setSaldo(valorDebito);
 
                 System.out.println("Valor debitado sucesso");
@@ -94,6 +102,11 @@ public class Features {
                 System.out.println("Digite o valor que deseja transferir: ");
                 scanner = new Scanner(System.in);
                 double valor = scanner.nextDouble();
+
+                if(valor < 0){
+                    System.out.println("Erro -> valor inserido nao pode ser negativo");
+                    return;
+                }
 
                 for(Conta conta1: contas){
                     if(conta1.getNumeroConta() == contaParaTransferir){
