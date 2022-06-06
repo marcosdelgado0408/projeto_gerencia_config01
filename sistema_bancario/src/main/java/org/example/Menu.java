@@ -14,6 +14,7 @@ public class Menu {
         System.out.println("3 - Solicitar credito");
         System.out.println("4 - Debitar");
         System.out.println("5 - Transferencia");
+        System.out.println("6 - Render juros");
         System.out.println("0 - Sair");
         System.out.println("=======================================");
     }
@@ -64,7 +65,14 @@ public class Menu {
                     System.out.println("Digite o numero da sua conta: ");
                     scanner = new Scanner(System.in);
 
-                    Features.transferir(scanner.nextLong());                     }
+                    Features.transferir(scanner.nextLong());
+                }
+                case 6 -> {
+                    System.out.println("Digite o numero da sua conta: ");
+                    scanner = new Scanner(System.in);
+
+                    Features.renderJuros(scanner.nextLong());
+                }
                 case 0 ->{
                     return;
                 }

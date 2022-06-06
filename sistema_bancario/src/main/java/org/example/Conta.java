@@ -11,6 +11,7 @@ public class Conta {
         this.numeroConta = 0;
         this.saldo = 0.0;
         this.tipoDeConta = "null";
+        pontuacao = 0;
     }
 
     public Conta(long numeroConta, double saldo, String tipoDeConta){

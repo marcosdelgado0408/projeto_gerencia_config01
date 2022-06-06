@@ -31,6 +31,12 @@ public class Features {
                 System.out.println("Saldo da conta: " + contas.get(contas.size()-1).getSaldo());
                 System.out.println("Pontucao: " + contas.get(contas.size()-1).getPontuacao());
             }
+            case 3 -> {
+                contas.add(new Conta(numero, 0.0, "poupanca"));
+                System.out.println("Nova conta criada");
+                System.out.println("Numero da conta: " + contas.get(contas.size()-1).getNumeroConta());
+                System.out.println("Saldo da conta: " + contas.get(contas.size()-1).getSaldo());
+            }
             default -> {
                 System.out.println("Erro -> Esse tipo de conta nao existe");
                 return;
@@ -168,11 +174,36 @@ public class Features {
         }
 
         System.out.println("Erro -> Essa conta nao foi cadastrada");
-
-
     }
 
 
+    public static void renderJuros(long numeroConta) {
+
+        for (Conta conta: contas){
+            if(numeroConta == conta.getNumeroConta()){
+
+                if(conta.getTipoDeConta().equals("poupanca")){
+                    System.out.println("Digite a taxa de juros:");
+                    Scanner scanner = new Scanner(System.in);
+
+                    double rendimento = conta.getSaldo() * (scanner.nextDouble()/100);
+                    double saldoFinal = conta.getSaldo() + rendimento;
+
+                    conta.setSaldo(saldoFinal);
+                    System.out.println("Saldo final apos juros aplicados: " + saldoFinal);
+                    return;
+                }
+                else {
+                    System.out.println("Erro -> essa conta nao e uma conta poupanca");
+                    return;
+                }
+            }
+        }
+
+        System.out.println("Erro -> Conta informada nao existe");
+
+
+    }
 
 }
 
