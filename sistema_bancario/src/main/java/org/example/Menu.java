@@ -32,9 +32,14 @@ public class Menu {
             switch (input) {
 
                 case 1 -> {
+
+
+
                     System.out.println("Digite o novo numero da sua conta: ");
                     scanner = new Scanner(System.in);
                     Features.cadastrarConta(scanner.nextLong());
+
+
                 }
 
                 case 2 -> {

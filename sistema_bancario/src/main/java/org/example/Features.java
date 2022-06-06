@@ -7,26 +7,57 @@ public class Features {
 
     static ArrayList<Conta> contas = new ArrayList<>();
 
-
-
     public static void cadastrarConta(long numero) {
-        contas.add(new Conta(numero, 0.0));
 
-        System.out.println("Nova conta criada");
-        System.out.println("Numero da conta: " + contas.get(0).getNumeroConta());
-        System.out.println("Saldo da conta: " + contas.get(0).getSaldo());
+        System.out.println("Digite o tipo de conta que deseja criar:");
+        System.out.println("\n1 - Conta normal");
+        System.out.println("2 - Conta bonus");
+        System.out.println("3 - Conta poupanca");
+
+        Scanner scanner = new Scanner(System.in);
+        int tipoConta = scanner.nextInt();
+
+        switch (tipoConta){
+            case 1 ->{
+                contas.add(new Conta(numero, 0.0, "normal"));
+                System.out.println("Nova conta criada");
+                System.out.println("Numero da conta: " + contas.get(contas.size()-1).getNumeroConta());
+                System.out.println("Saldo da conta: " + contas.get(contas.size()-1).getSaldo());
+            }
+            case 2 ->{
+                contas.add(new Conta(numero, 0.0, "bonus", 10));
+                System.out.println("Nova conta criada");
+                System.out.println("Numero da conta: " + contas.get(contas.size()-1).getNumeroConta());
+                System.out.println("Saldo da conta: " + contas.get(contas.size()-1).getSaldo());
+                System.out.println("Pontucao: " + contas.get(contas.size()-1).getPontuacao());
+            }
+            default -> {
+                System.out.println("Erro -> Esse tipo de conta nao existe");
+                return;
+            }
+        }
+
     }
+
+
 
     public static void consultarSaldo(long numero){
         for(Conta conta: contas){
             if(conta.getNumeroConta() == numero){
+
                 System.out.println("Saldo da conta " + numero + " :" + conta.getSaldo());
+                if(conta.getTipoDeConta().equals("bonus")){
+                    System.out.println("Pontuacao: " + conta.getPontuacao());
+                }
+
                 return;
             }
         }
         System.out.println("Erro -> Essa conta nao foi cadastrada");
     }
 
+
+    // Vou considerar o deposito como a adição de créditos à conta
     public static void addCredito(long numeroConta){
 
         for(Conta conta: contas){
@@ -42,8 +73,14 @@ public class Features {
                     return;
                 }
 
+
                 valorCredito += conta.getSaldo();
                 conta.setSaldo(valorCredito);
+
+                if(conta.getTipoDeConta().equals("bonus")){
+                    int valorBonus = (int) (valorCredito/100);
+                    conta.setPontuacao(conta.getPontuacao() + valorBonus);
+                }
 
                 System.out.println("Saldo creditado com sucesso");
                 return;
@@ -112,6 +149,12 @@ public class Features {
                     if(conta1.getNumeroConta() == contaParaTransferir){
                         conta.setSaldo(conta.getSaldo() - valor);
                         conta1.setSaldo(conta1.getSaldo() + valor);
+
+                        if(conta1.getTipoDeConta().equals("bonus")){
+                            int valorBonus = (int) (valor/200);
+                            conta1.setPontuacao(conta1.getPontuacao() + valorBonus);
+                        }
+
 
                         System.out.println("Dinheiro transferido com sucesso");
                         return;
