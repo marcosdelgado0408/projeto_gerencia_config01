@@ -10,7 +10,13 @@ public class Features {
 
 
     public static void cadastrarConta(long numero) {
-        contas.add(new Conta(numero, 0.0));
+        System.out.println("E necessario informar saldo inicial da conta");
+        System.out.println("Informe saldo inicial da conta: ");
+
+        Scanner scanner = new Scanner(System.in);
+        double saldoInicial = scanner.nextDouble();
+
+        contas.add(new Conta(numero, saldoInicial));
 
         System.out.println("Nova conta criada");
         System.out.println("Numero da conta: " + contas.get(0).getNumeroConta());
