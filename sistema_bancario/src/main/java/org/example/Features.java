@@ -32,6 +32,7 @@ public class Features {
                 System.out.println("Pontucao: " + contas.get(contas.size()-1).getPontuacao());
             }
             case 3 -> {
+                // como isso não é uma nova funcionalidade -> não vou criar uma branch feature para isso
                 System.out.println("E necessario digitar um saldo inicial na conta");
                 System.out.println("Informe saldo inicial:");
                 scanner = new Scanner(System.in);
