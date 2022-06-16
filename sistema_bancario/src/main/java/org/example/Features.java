@@ -19,7 +19,13 @@ public class Features {
 
         switch (tipoConta){
             case 1 ->{
-                contas.add(new Conta(numero, 0.0, "normal"));
+                System.out.println("E necessario informar saldo inicial da conta");
+                System.out.println("Informe saldo inicial da conta: ");
+
+                scanner = new Scanner(System.in);
+                double saldoInicial = scanner.nextDouble();
+
+                contas.add(new Conta(numero, saldoInicial, "normal"));
                 System.out.println("Nova conta criada");
                 System.out.println("Numero da conta: " + contas.get(contas.size()-1).getNumeroConta());
                 System.out.println("Saldo da conta: " + contas.get(contas.size()-1).getSaldo());
@@ -48,6 +54,7 @@ public class Features {
                 return;
             }
         }
+
 
     }
 
