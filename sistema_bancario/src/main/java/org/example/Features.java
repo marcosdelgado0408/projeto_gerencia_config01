@@ -163,7 +163,7 @@ public class Features {
                         conta1.setSaldo(conta1.getSaldo() + valor);
 
                         if(conta1.getTipoDeConta().equals("bonus")){
-                            int valorBonus = (int) (valor/200);
+                            int valorBonus = (int) (valor/150);
                             conta1.setPontuacao(conta1.getPontuacao() + valorBonus);
                         }
 
