@@ -105,7 +105,7 @@ public class Features {
         for(Conta conta: contas){
             if(conta.getNumeroConta() == numeroConta){
 
-                if(conta.getSaldo() <= 0){
+                if(conta.getTipoDeConta().equals("poupanca") && conta.getSaldo() <= 0){
                     System.out.println("ERRO -> A conta possui saldo insuficiente para debito");
                     return;
                 }
@@ -118,6 +118,11 @@ public class Features {
 
                 if(valorDebito < 0){
                     System.out.println("Erro -> valor inserido nao pode ser negativo");
+                    return;
+                }
+
+                if( (!conta.getTipoDeConta().equals("poupanca")) && conta.getSaldo() - valorDebito < -1000.00){
+                    System.out.println("ERRO -> a conta nao pode possuir saldo menor que -1000.00");
                     return;
                 }
 
@@ -137,7 +142,7 @@ public class Features {
         for(Conta conta: contas) {
             if (conta.getNumeroConta() == numeroConta) {
 
-                if (conta.getSaldo() <= 0) {
+                if(conta.getTipoDeConta().equals("poupanca") && conta.getSaldo() <= 0){
                     System.out.println("Erro -> saldo insuficiente para transferir");
                     return;
                 }
@@ -151,6 +156,11 @@ public class Features {
                 System.out.println("Digite o valor que deseja transferir: ");
                 scanner = new Scanner(System.in);
                 double valor = scanner.nextDouble();
+
+                if( (!conta.getTipoDeConta().equals("poupanca")) && conta.getSaldo() - valor < -1000.00){
+                    System.out.println("ERRO -> a conta nao pode possuir saldo menor que -1000.00");
+                    return;
+                }
 
                 if(valor < 0){
                     System.out.println("Erro -> valor inserido nao pode ser negativo");
