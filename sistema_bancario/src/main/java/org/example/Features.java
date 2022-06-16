@@ -32,7 +32,12 @@ public class Features {
                 System.out.println("Pontucao: " + contas.get(contas.size()-1).getPontuacao());
             }
             case 3 -> {
-                contas.add(new Conta(numero, 0.0, "poupanca"));
+                System.out.println("E necessario digitar um saldo inicial na conta");
+                System.out.println("Informe saldo inicial:");
+                scanner = new Scanner(System.in);
+                double saldoInicial = scanner.nextDouble();
+
+                contas.add(new Conta(numero, saldoInicial, "poupanca"));
                 System.out.println("Nova conta criada");
                 System.out.println("Numero da conta: " + contas.get(contas.size()-1).getNumeroConta());
                 System.out.println("Saldo da conta: " + contas.get(contas.size()-1).getSaldo());
