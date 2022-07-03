@@ -18,7 +18,7 @@ public class Features {
         int tipoConta = scanner.nextInt();
 
         switch (tipoConta){
-            case 1 ->{
+            case 1:
                 System.out.println("E necessario informar saldo inicial da conta");
                 System.out.println("Informe saldo inicial da conta: ");
 
@@ -29,30 +29,29 @@ public class Features {
                 System.out.println("Nova conta criada");
                 System.out.println("Numero da conta: " + contas.get(contas.size()-1).getNumeroConta());
                 System.out.println("Saldo da conta: " + contas.get(contas.size()-1).getSaldo());
-            }
-            case 2 ->{
+            break;
+            case 2:
                 contas.add(new Conta(numero, 0.0, "bonus", 10));
                 System.out.println("Nova conta criada");
                 System.out.println("Numero da conta: " + contas.get(contas.size()-1).getNumeroConta());
                 System.out.println("Saldo da conta: " + contas.get(contas.size()-1).getSaldo());
                 System.out.println("Pontucao: " + contas.get(contas.size()-1).getPontuacao());
-            }
-            case 3 -> {
+            break;
+            case 3:
                 // como isso não é uma nova funcionalidade -> não vou criar uma branch feature para isso
                 System.out.println("E necessario digitar um saldo inicial na conta");
                 System.out.println("Informe saldo inicial:");
                 scanner = new Scanner(System.in);
-                double saldoInicial = scanner.nextDouble();
+                double saldoInicial2 = scanner.nextDouble();
 
-                contas.add(new Conta(numero, saldoInicial, "poupanca"));
+                contas.add(new Conta(numero, saldoInicial2, "poupanca"));
                 System.out.println("Nova conta criada");
                 System.out.println("Numero da conta: " + contas.get(contas.size()-1).getNumeroConta());
                 System.out.println("Saldo da conta: " + contas.get(contas.size()-1).getSaldo());
-            }
-            default -> {
+            break;
+            default:
                 System.out.println("Erro -> Esse tipo de conta nao existe");
-                return;
-            }
+            break;
         }
 
 

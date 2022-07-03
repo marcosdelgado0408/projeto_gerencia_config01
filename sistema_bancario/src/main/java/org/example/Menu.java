@@ -32,60 +32,51 @@ public class Menu {
 
             switch (input) {
 
-                case 1 -> {
-
-
+                case 1:
 
                     System.out.println("Digite o novo numero da sua conta: ");
                     scanner = new Scanner(System.in);
                     Features.cadastrarConta(scanner.nextLong());
 
 
-                }
+                break;
 
-                case 2 -> {
+                case 2:
                     System.out.println("Digite o numero da conta: ");
                     scanner = new Scanner(System.in);
                     Features.consultarSaldo(scanner.nextLong());
-                }
-                case 3 -> {
+                break;
+                case 3:
 
                     System.out.println("Digite o numero da conta: ");
                     scanner = new Scanner(System.in);
 
                     Features.addCredito(scanner.nextLong());
-                }
-                case 4 -> {
+                break;
+                case 4:
                     System.out.println("Digite o numero da conta: ");
                     scanner = new Scanner(System.in);
 
                     Features.debitarValor(scanner.nextLong());
-                }
-                case 5 -> {
+                break;
+                case 5:
                     System.out.println("Digite o numero da sua conta: ");
                     scanner = new Scanner(System.in);
 
                     Features.transferir(scanner.nextLong());
-                }
-                case 6 -> {
+                break;
+                case 6:
                     System.out.println("Digite o numero da sua conta: ");
                     scanner = new Scanner(System.in);
 
                     Features.renderJuros(scanner.nextLong());
-                }
-                case 0 ->{
+                break;
+                case 0:
                     return;
-                }
 
             }
 
         } while (true);
-
-
-
-
-
-
 
 
 
