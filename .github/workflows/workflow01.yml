@@ -25,4 +25,4 @@ jobs:
     needs: build
 
     steps:
-    - run: mvn clean test
+    - run: cd sistema_bancario && mvn clean test
