@@ -16,5 +16,4 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build With Maven
-        run: cd sistema_bancario
-        run: mvn install
+        run: cd sistema_bancario && mvn install
