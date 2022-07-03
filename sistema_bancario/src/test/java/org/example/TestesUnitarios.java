@@ -11,6 +11,7 @@ public class TestesUnitarios {
 
     @Test
     public void testeAddCreditoNormal(){
+        contas.clear();
         contas.add(new Conta(2105, 2000, "normal")); // conta normal inicial com saldo de 2000
         Features.setContas(contas);
 
@@ -25,6 +26,7 @@ public class TestesUnitarios {
 
     @Test
     public void testAddCreditoBonus(){
+        contas.clear();
         contas.add(new Conta(2106, 0.0, "bonus", 10));
         Features.setContas(contas);
 
@@ -40,6 +42,7 @@ public class TestesUnitarios {
 
     @Test
     public void testAddCreditoPoupanca(){
+        contas.clear();
         contas.add(new Conta(2105, 2000, "poupanca"));
         Features.setContas(contas);
 
@@ -54,6 +57,7 @@ public class TestesUnitarios {
 
     @Test
     public void testDebitarNormal(){
+        contas.clear();
         contas.add(new Conta(2107, 2000, "normal")); // conta normal inicial com saldo de 2000
         Features.setContas(contas);
 
@@ -68,6 +72,7 @@ public class TestesUnitarios {
 
     @Test
     public void testDebitarPoupanca(){
+        contas.clear();
         contas.add(new Conta(2108, 2000, "poupanca")); // conta normal inicial com saldo de 2000
         Features.setContas(contas);
 
@@ -83,6 +88,7 @@ public class TestesUnitarios {
 
     @Test
     public void testDebitarBonus(){
+        contas.clear();
         contas.add(new Conta(2106, 200, "bonus", 10));
         Features.setContas(contas);
 
