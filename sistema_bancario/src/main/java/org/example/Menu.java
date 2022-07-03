@@ -37,8 +37,6 @@ public class Menu {
                     System.out.println("Digite o novo numero da sua conta: ");
                     scanner = new Scanner(System.in);
                     Features.cadastrarConta(scanner.nextLong());
-
-
                 break;
 
                 case 2:
@@ -50,26 +48,56 @@ public class Menu {
 
                     System.out.println("Digite o numero da conta: ");
                     scanner = new Scanner(System.in);
+                    long conta = scanner.nextLong();
 
-                    Features.addCredito(scanner.nextLong());
+                    System.out.println("----------------------------------");
+                    System.out.println("Digite o valor a ser creditado:");
+
+                    scanner = new Scanner(System.in);
+                    double valorCredito = scanner.nextDouble();
+
+                    Features.addCredito(conta, valorCredito);
                 break;
                 case 4:
                     System.out.println("Digite o numero da conta: ");
                     scanner = new Scanner(System.in);
+                    long conta2 = scanner.nextLong();
 
-                    Features.debitarValor(scanner.nextLong());
+                    System.out.println("----------------------------------");
+                    System.out.println("Digite o valor a ser debitado na conta:");
+
+                    scanner = new Scanner(System.in);
+                    double valorDebito = scanner.nextDouble();
+
+                    Features.debitarValor(conta2, valorDebito);
                 break;
                 case 5:
                     System.out.println("Digite o numero da sua conta: ");
                     scanner = new Scanner(System.in);
+                    long suaConta = scanner.nextLong();
 
-                    Features.transferir(scanner.nextLong());
+                    System.out.println("----------------------------------");
+                    System.out.println("Digite o numero da conta que deseja transferir: ");
+
+                    scanner = new Scanner(System.in);
+                    long contaParaTransferir = scanner.nextInt();
+
+                    System.out.println("Digite o valor que deseja transferir: ");
+                    scanner = new Scanner(System.in);
+                    double valor = scanner.nextDouble();
+
+                    Features.transferir(suaConta, contaParaTransferir, valor);
                 break;
                 case 6:
                     System.out.println("Digite o numero da sua conta: ");
                     scanner = new Scanner(System.in);
+                    long numeroConta = scanner.nextLong();
 
-                    Features.renderJuros(scanner.nextLong());
+                    System.out.println("Digite a taxa de juros:");
+                    scanner = new Scanner(System.in);
+                    double taxaJuros = scanner.nextDouble();
+
+                    Features.renderJuros(numeroConta, taxaJuros);
                 break;
                 case 0:
                     return;

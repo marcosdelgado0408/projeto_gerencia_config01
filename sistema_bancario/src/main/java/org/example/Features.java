@@ -7,6 +7,15 @@ public class Features {
 
     static ArrayList<Conta> contas = new ArrayList<>();
 
+
+    public static ArrayList<Conta> getContas() {
+        return contas;
+    }
+
+    public static void setContas(ArrayList<Conta> contas) {
+        Features.contas = contas;
+    }
+
     public static void cadastrarConta(long numero) {
 
         System.out.println("Digite o tipo de conta que deseja criar:");
@@ -76,21 +85,15 @@ public class Features {
 
 
     // Vou considerar o deposito como a adição de créditos à conta
-    public static void addCredito(long numeroConta){
+    public static void addCredito(long numeroConta, double valorCredito){
 
         for(Conta conta: contas){
             if(conta.getNumeroConta() == numeroConta){
-                System.out.println("----------------------------------");
-                System.out.println("Digite o valor a ser creditado:");
-
-                Scanner scanner = new Scanner(System.in);
-                double valorCredito = scanner.nextDouble();
 
                 if(valorCredito < 0){
                     System.out.println("Erro -> valor inserido nao pode ser negativo");
                     return;
                 }
-
 
                 valorCredito += conta.getSaldo();
                 conta.setSaldo(valorCredito);
@@ -107,7 +110,7 @@ public class Features {
         System.out.println("Erro -> Essa conta nao foi cadastrada");
     }
 
-    public static void debitarValor(long numeroConta){
+    public static void debitarValor(long numeroConta, double valorDebito){
         for(Conta conta: contas){
             if(conta.getNumeroConta() == numeroConta){
 
@@ -115,12 +118,6 @@ public class Features {
                     System.out.println("ERRO -> A conta possui saldo insuficiente para debito");
                     return;
                 }
-
-                System.out.println("----------------------------------");
-                System.out.println("Digite o valor a ser debitado na conta:");
-
-                Scanner scanner = new Scanner(System.in);
-                double valorDebito = scanner.nextDouble();
 
                 if(valorDebito < 0){
                     System.out.println("Erro -> valor inserido nao pode ser negativo");
@@ -143,7 +140,7 @@ public class Features {
     }
 
 
-    public static void transferir(long numeroConta) {
+    public static void transferir(long numeroConta, long contaParaTransferir, double valor) {
 
         for(Conta conta: contas) {
             if (conta.getNumeroConta() == numeroConta) {
@@ -153,15 +150,6 @@ public class Features {
                     return;
                 }
 
-                System.out.println("----------------------------------");
-                System.out.println("Digite o numero da conta que deseja transferir: ");
-
-                Scanner scanner = new Scanner(System.in);
-                long contaParaTransferir = scanner.nextInt();
-
-                System.out.println("Digite o valor que deseja transferir: ");
-                scanner = new Scanner(System.in);
-                double valor = scanner.nextDouble();
 
                 if( (!conta.getTipoDeConta().equals("poupanca")) && conta.getSaldo() - valor < -1000.00){
                     System.out.println("ERRO -> a conta nao pode possuir saldo menor que -1000.00");
@@ -188,27 +176,22 @@ public class Features {
                         return;
                     }
                 }
-                System.out.println("Erro -> Essa conta nao foi cadastrada");
-
-
+                System.out.println("Erro -> segunda conta nao foi cadastrada");
 
             }
         }
 
-        System.out.println("Erro -> Essa conta nao foi cadastrada");
+        System.out.println("Erro -> primeira conta nao foi cadastrada");
     }
 
 
-    public static void renderJuros(long numeroConta) {
+    public static void renderJuros(long numeroConta, double taxaJuros) {
 
         for (Conta conta: contas){
             if(numeroConta == conta.getNumeroConta()){
 
                 if(conta.getTipoDeConta().equals("poupanca")){
-                    System.out.println("Digite a taxa de juros:");
-                    Scanner scanner = new Scanner(System.in);
-
-                    double rendimento = conta.getSaldo() * (scanner.nextDouble()/100);
+                    double rendimento = conta.getSaldo() * (taxaJuros/100);
                     double saldoFinal = conta.getSaldo() + rendimento;
 
                     conta.setSaldo(saldoFinal);
