@@ -20,7 +20,7 @@ jobs:
         run: cd sistema_bancario && mvn install -DskipTests
 
 
-  teste:
+  test:
     runs-on: ubuntu-latest
     needs: build
 
