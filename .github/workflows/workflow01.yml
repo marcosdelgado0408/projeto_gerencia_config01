@@ -20,6 +20,17 @@ jobs:
       - name: Build With Maven
         run: cd sistema_bancario && mvn install -DskipTests
 
+  lint:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Super-Linter
+      uses: github/super-linter@v3.15.5
+      env:  
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
     runs-on: ubuntu-latest
